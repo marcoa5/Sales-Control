@@ -77,33 +77,33 @@ Public Class Form1
 
         Next
 
-        With mWs.PivotTables("SC1").PivotFields("Business Line")
-            .Orientation = Microsoft.Office.Interop.Excel.XlPivotFieldOrientation.xlRowField
-            .Position = 1
-            .subtotals(1) = False
-        End With
-        With mWs.PivotTables("SC1").PivotFields("Year")
-            .Orientation = Microsoft.Office.Interop.Excel.XlPivotFieldOrientation.xlColumnField
-            .Position = 1
-            .subtotals(1) = False
-        End With
-        mWs.PivotTables("SC1").AddDataField(mWs.PivotTables("SC1").PivotFields("SalesPrice"), "NIS")
-        With mWs.PivotTables("SC1").PivotFields("NIS")
-            .NumberFormat = "#,##0.00 €"
-        End With
-        With mWs.PivotTables("SC1").PivotFields("SR-SI")
-            .Orientation = Microsoft.Office.Interop.Excel.XlPivotFieldOrientation.xlColumnField
-            .Position = 2
-            .subtotals(1) = False
-        End With
-        If (Me.IYC.Checked = True And Me.GRC.Checked = False) Or (Me.IYC.Checked = False And Me.GRC.Checked = True) Then
-        Else
-
-            With mWs.PivotTables("SC1").PivotFields("Environment")
-                .Orientation = Microsoft.Office.Interop.Excel.XlPivotFieldOrientation.xlPageField
-                .Position = 1
-            End With
-        End If
+        'With mWs.PivotTables("SC1").PivotFields("Business Line")
+        '.Orientation = Microsoft.Office.Interop.Excel.XlPivotFieldOrientation.xlRowField
+        '.Position = 1
+        '.subtotals(1) = False
+        'End With
+        'With mWs.PivotTables("SC1").PivotFields("Year")
+        '.Orientation = Microsoft.Office.Interop.Excel.XlPivotFieldOrientation.xlColumnField
+        '.Position = 1
+        '.subtotals(1) = False
+        'End With
+        'mWs.PivotTables("SC1").AddDataField(mWs.PivotTables("SC1").PivotFields("SalesPrice"), "NIS")
+        'With mWs.PivotTables("SC1").PivotFields("NIS")
+        '.NumberFormat = "#,##0.00 €"
+        'End With
+        'With mWs.PivotTables("SC1").PivotFields("SR-SI")
+        '.Orientation = Microsoft.Office.Interop.Excel.XlPivotFieldOrientation.xlColumnField
+        '.Position = 2
+        '.subtotals(1) = False
+        'End With
+        'If (Me.IYC.Checked = True And Me.GRC.Checked = False) Or (Me.IYC.Checked = False And Me.GRC.Checked = True) Then
+        'Else
+        '
+        'With mWs.PivotTables("SC1").PivotFields("Environment")
+        '.Orientation = Microsoft.Office.Interop.Excel.XlPivotFieldOrientation.xlPageField
+        '.Position = 1
+        'End With
+        'End If
         mWs.PivotTables("SC1").RowAxisLayout(Microsoft.Office.Interop.Excel.XlLayoutRowType.xlTabularRow)
         mWs.PivotTables("SC1").RepeatAllLabels(Microsoft.Office.Interop.Excel.XlPivotFieldRepeatLabels.xlRepeatLabels)
 
