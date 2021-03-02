@@ -73,7 +73,7 @@ Partial Class Form1
         Me.IYC.AutoSize = True
         Me.IYC.Location = New System.Drawing.Point(9, 28)
         Me.IYC.Name = "IYC"
-        Me.IYC.Size = New System.Drawing.Size(50, 21)
+        Me.IYC.Size = New System.Drawing.Size(43, 17)
         Me.IYC.TabIndex = 5
         Me.IYC.Text = "IYC"
         Me.IYC.UseVisualStyleBackColor = True
@@ -83,7 +83,7 @@ Partial Class Form1
         Me.GRC.AutoSize = True
         Me.GRC.Location = New System.Drawing.Point(88, 26)
         Me.GRC.Name = "GRC"
-        Me.GRC.Size = New System.Drawing.Size(56, 21)
+        Me.GRC.Size = New System.Drawing.Size(49, 17)
         Me.GRC.TabIndex = 6
         Me.GRC.Text = "GRC"
         Me.GRC.UseVisualStyleBackColor = True
@@ -115,7 +115,7 @@ Partial Class Form1
         Me.CheckBox5.AutoSize = True
         Me.CheckBox5.Location = New System.Drawing.Point(9, 28)
         Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(48, 21)
+        Me.CheckBox5.Size = New System.Drawing.Size(41, 17)
         Me.CheckBox5.TabIndex = 5
         Me.CheckBox5.Text = "SR"
         Me.CheckBox5.UseVisualStyleBackColor = True
@@ -125,7 +125,7 @@ Partial Class Form1
         Me.CheckBox6.AutoSize = True
         Me.CheckBox6.Location = New System.Drawing.Point(88, 28)
         Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(43, 21)
+        Me.CheckBox6.Size = New System.Drawing.Size(36, 17)
         Me.CheckBox6.TabIndex = 6
         Me.CheckBox6.Text = "SI"
         Me.CheckBox6.UseVisualStyleBackColor = True
@@ -204,11 +204,12 @@ Partial Class Form1
         'CheckedListBox1
         '
         Me.CheckedListBox1.CheckOnClick = True
+        Me.CheckedListBox1.ColumnWidth = 100
         Me.CheckedListBox1.FormattingEnabled = True
-        Me.CheckedListBox1.Items.AddRange(New Object() {"MRS", "RDT", "REX", "RGU", "SED", "URE", "CTH", "CHS", "OTH"})
+        Me.CheckedListBox1.Items.AddRange(New Object() {"MRS", "RDT", "REX", "RGU", "SED", "URE", "HAT", "OTH"})
         Me.CheckedListBox1.Location = New System.Drawing.Point(9, 49)
         Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(180, 123)
+        Me.CheckedListBox1.Size = New System.Drawing.Size(180, 109)
         Me.CheckedListBox1.TabIndex = 20
         '
         'GroupBox4
@@ -237,7 +238,7 @@ Partial Class Form1
         Me.CheckBox3.AutoSize = True
         Me.CheckBox3.Location = New System.Drawing.Point(9, 26)
         Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(77, 21)
+        Me.CheckBox3.Size = New System.Drawing.Size(70, 17)
         Me.CheckBox3.TabIndex = 1
         Me.CheckBox3.Text = "Select All"
         Me.CheckBox3.UseVisualStyleBackColor = True
@@ -265,7 +266,7 @@ Partial Class Form1
         Me.OOH.AutoSize = True
         Me.OOH.Location = New System.Drawing.Point(9, 19)
         Me.OOH.Name = "OOH"
-        Me.OOH.Size = New System.Drawing.Size(95, 21)
+        Me.OOH.Size = New System.Drawing.Size(88, 17)
         Me.OOH.TabIndex = 18
         Me.OOH.Text = "Include OOH"
         Me.OOH.UseVisualStyleBackColor = True
