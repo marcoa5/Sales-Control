@@ -28,6 +28,8 @@ Partial Class Form1
         Me.IYC = New System.Windows.Forms.CheckBox()
         Me.GRC = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.MFR = New System.Windows.Forms.CheckBox()
+        Me.MAP = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.CheckBox5 = New System.Windows.Forms.CheckBox()
         Me.CheckBox6 = New System.Windows.Forms.CheckBox()
@@ -55,25 +57,28 @@ Partial Class Form1
         '
         'Inizio
         '
-        Me.Inizio.Location = New System.Drawing.Point(61, 22)
+        Me.Inizio.Location = New System.Drawing.Point(92, 34)
+        Me.Inizio.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Inizio.MinDate = New Date(2012, 1, 1, 0, 0, 0, 0)
         Me.Inizio.Name = "Inizio"
-        Me.Inizio.Size = New System.Drawing.Size(200, 20)
+        Me.Inizio.Size = New System.Drawing.Size(298, 26)
         Me.Inizio.TabIndex = 1
         '
         'Fine
         '
-        Me.Fine.Location = New System.Drawing.Point(61, 48)
+        Me.Fine.Location = New System.Drawing.Point(92, 74)
+        Me.Fine.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Fine.Name = "Fine"
-        Me.Fine.Size = New System.Drawing.Size(200, 20)
+        Me.Fine.Size = New System.Drawing.Size(298, 26)
         Me.Fine.TabIndex = 3
         '
         'IYC
         '
         Me.IYC.AutoSize = True
-        Me.IYC.Location = New System.Drawing.Point(9, 28)
+        Me.IYC.Location = New System.Drawing.Point(14, 40)
+        Me.IYC.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.IYC.Name = "IYC"
-        Me.IYC.Size = New System.Drawing.Size(43, 17)
+        Me.IYC.Size = New System.Drawing.Size(62, 24)
         Me.IYC.TabIndex = 5
         Me.IYC.Text = "IYC"
         Me.IYC.UseVisualStyleBackColor = True
@@ -81,31 +86,60 @@ Partial Class Form1
         'GRC
         '
         Me.GRC.AutoSize = True
-        Me.GRC.Location = New System.Drawing.Point(88, 26)
+        Me.GRC.Location = New System.Drawing.Point(132, 40)
+        Me.GRC.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GRC.Name = "GRC"
-        Me.GRC.Size = New System.Drawing.Size(49, 17)
+        Me.GRC.Size = New System.Drawing.Size(71, 24)
         Me.GRC.TabIndex = 6
         Me.GRC.Text = "GRC"
         Me.GRC.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.MFR)
+        Me.GroupBox1.Controls.Add(Me.MAP)
         Me.GroupBox1.Controls.Add(Me.IYC)
         Me.GroupBox1.Controls.Add(Me.GRC)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 92)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 142)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(188, 55)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Size = New System.Drawing.Size(282, 143)
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Environment"
+        '
+        'MFR
+        '
+        Me.MFR.AutoSize = True
+        Me.MFR.Location = New System.Drawing.Point(14, 91)
+        Me.MFR.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.MFR.Name = "MFR"
+        Me.MFR.Size = New System.Drawing.Size(70, 24)
+        Me.MFR.TabIndex = 7
+        Me.MFR.Text = "MFR"
+        Me.MFR.UseVisualStyleBackColor = True
+        '
+        'MAP
+        '
+        Me.MAP.AutoSize = True
+        Me.MAP.Location = New System.Drawing.Point(132, 91)
+        Me.MAP.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.MAP.Name = "MAP"
+        Me.MAP.Size = New System.Drawing.Size(69, 24)
+        Me.MAP.TabIndex = 8
+        Me.MAP.Text = "MAP"
+        Me.MAP.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.CheckBox5)
         Me.GroupBox2.Controls.Add(Me.CheckBox6)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 153)
+        Me.GroupBox2.Location = New System.Drawing.Point(18, 294)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(188, 55)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox2.Size = New System.Drawing.Size(282, 85)
         Me.GroupBox2.TabIndex = 20
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "SR-SI"
@@ -113,9 +147,10 @@ Partial Class Form1
         'CheckBox5
         '
         Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Location = New System.Drawing.Point(9, 28)
+        Me.CheckBox5.Location = New System.Drawing.Point(14, 43)
+        Me.CheckBox5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(41, 17)
+        Me.CheckBox5.Size = New System.Drawing.Size(58, 24)
         Me.CheckBox5.TabIndex = 5
         Me.CheckBox5.Text = "SR"
         Me.CheckBox5.UseVisualStyleBackColor = True
@@ -123,9 +158,10 @@ Partial Class Form1
         'CheckBox6
         '
         Me.CheckBox6.AutoSize = True
-        Me.CheckBox6.Location = New System.Drawing.Point(88, 28)
+        Me.CheckBox6.Location = New System.Drawing.Point(132, 43)
+        Me.CheckBox6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(36, 17)
+        Me.CheckBox6.Size = New System.Drawing.Size(51, 24)
         Me.CheckBox6.TabIndex = 6
         Me.CheckBox6.Text = "SI"
         Me.CheckBox6.UseVisualStyleBackColor = True
@@ -140,45 +176,51 @@ Partial Class Form1
         Me.GroupBox3.Controls.Add(Me.Inizio)
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Controls.Add(Me.Fine)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox3.Location = New System.Drawing.Point(18, 18)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(389, 74)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox3.Size = New System.Drawing.Size(584, 114)
         Me.GroupBox3.TabIndex = 1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Start - End"
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(267, 22)
+        Me.Button7.Location = New System.Drawing.Point(400, 34)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(50, 20)
+        Me.Button7.Size = New System.Drawing.Size(75, 31)
         Me.Button7.TabIndex = 18
         Me.Button7.Text = "Day"
         Me.Button7.UseVisualStyleBackColor = True
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(323, 47)
+        Me.Button6.Location = New System.Drawing.Point(484, 72)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(50, 20)
+        Me.Button6.Size = New System.Drawing.Size(75, 31)
         Me.Button6.TabIndex = 17
         Me.Button6.Text = "FY+PY"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(323, 22)
+        Me.Button5.Location = New System.Drawing.Point(484, 34)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(50, 20)
+        Me.Button5.Size = New System.Drawing.Size(75, 31)
         Me.Button5.TabIndex = 16
         Me.Button5.Text = "Month"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(267, 48)
+        Me.Button4.Location = New System.Drawing.Point(400, 74)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(50, 20)
+        Me.Button4.Size = New System.Drawing.Size(75, 31)
         Me.Button4.TabIndex = 15
         Me.Button4.Text = "Year"
         Me.Button4.UseVisualStyleBackColor = True
@@ -186,18 +228,20 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 54)
+        Me.Label2.Location = New System.Drawing.Point(9, 83)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(26, 13)
+        Me.Label2.Size = New System.Drawing.Size(38, 20)
         Me.Label2.TabIndex = 14
         Me.Label2.Text = "End"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 28)
+        Me.Label1.Location = New System.Drawing.Point(9, 43)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(29, 13)
+        Me.Label1.Size = New System.Drawing.Size(44, 20)
         Me.Label1.TabIndex = 13
         Me.Label1.Text = "Start"
         '
@@ -207,9 +251,10 @@ Partial Class Form1
         Me.CheckedListBox1.ColumnWidth = 100
         Me.CheckedListBox1.FormattingEnabled = True
         Me.CheckedListBox1.Items.AddRange(New Object() {"MRS", "RDT", "REX", "RGU", "SED", "URE", "HAT", "OTH"})
-        Me.CheckedListBox1.Location = New System.Drawing.Point(9, 49)
+        Me.CheckedListBox1.Location = New System.Drawing.Point(14, 75)
+        Me.CheckedListBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(180, 109)
+        Me.CheckedListBox1.Size = New System.Drawing.Size(268, 234)
         Me.CheckedListBox1.TabIndex = 20
         '
         'GroupBox4
@@ -217,18 +262,21 @@ Partial Class Form1
         Me.GroupBox4.Controls.Add(Me.Button2)
         Me.GroupBox4.Controls.Add(Me.CheckBox3)
         Me.GroupBox4.Controls.Add(Me.CheckedListBox1)
-        Me.GroupBox4.Location = New System.Drawing.Point(206, 92)
+        Me.GroupBox4.Location = New System.Drawing.Point(309, 142)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(195, 173)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox4.Size = New System.Drawing.Size(292, 326)
         Me.GroupBox4.TabIndex = 40
         Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Business Lines"
+        Me.GroupBox4.Text = "z"
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(85, 23)
+        Me.Button2.Location = New System.Drawing.Point(128, 35)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(69, 20)
+        Me.Button2.Size = New System.Drawing.Size(104, 31)
         Me.Button2.TabIndex = 10
         Me.Button2.Text = "MR"
         Me.Button2.UseVisualStyleBackColor = True
@@ -236,27 +284,30 @@ Partial Class Form1
         'CheckBox3
         '
         Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(9, 26)
+        Me.CheckBox3.Location = New System.Drawing.Point(14, 40)
+        Me.CheckBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(70, 17)
+        Me.CheckBox3.Size = New System.Drawing.Size(101, 24)
         Me.CheckBox3.TabIndex = 1
         Me.CheckBox3.Text = "Select All"
         Me.CheckBox3.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(325, 278)
+        Me.Button1.Location = New System.Drawing.Point(488, 488)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(76, 30)
+        Me.Button1.Size = New System.Drawing.Size(114, 46)
         Me.Button1.TabIndex = 50
         Me.Button1.Text = "Ok"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(239, 278)
+        Me.Button3.Location = New System.Drawing.Point(358, 488)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(76, 30)
+        Me.Button3.Size = New System.Drawing.Size(114, 46)
         Me.Button3.TabIndex = 60
         Me.Button3.Text = "Annulla"
         Me.Button3.UseVisualStyleBackColor = True
@@ -264,9 +315,10 @@ Partial Class Form1
         'OOH
         '
         Me.OOH.AutoSize = True
-        Me.OOH.Location = New System.Drawing.Point(9, 19)
+        Me.OOH.Location = New System.Drawing.Point(14, 29)
+        Me.OOH.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.OOH.Name = "OOH"
-        Me.OOH.Size = New System.Drawing.Size(88, 17)
+        Me.OOH.Size = New System.Drawing.Size(127, 24)
         Me.OOH.TabIndex = 18
         Me.OOH.Text = "Include OOH"
         Me.OOH.UseVisualStyleBackColor = True
@@ -274,18 +326,20 @@ Partial Class Form1
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.OOH)
-        Me.GroupBox5.Location = New System.Drawing.Point(12, 214)
+        Me.GroupBox5.Location = New System.Drawing.Point(18, 389)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(188, 51)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox5.Size = New System.Drawing.Size(282, 78)
         Me.GroupBox5.TabIndex = 30
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Orders On Hand"
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(407, 314)
+        Me.ClientSize = New System.Drawing.Size(610, 552)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button1)
@@ -295,6 +349,7 @@ Partial Class Form1
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -335,4 +390,6 @@ Partial Class Form1
     Friend WithEvents Button4 As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents Button7 As Button
+    Friend WithEvents MFR As CheckBox
+    Friend WithEvents MAP As CheckBox
 End Class

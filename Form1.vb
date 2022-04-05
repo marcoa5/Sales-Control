@@ -22,9 +22,17 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim Testo As String = "select * from ""SalesControl"".""dbo"".""SalesControlAll"" Where TransactionDateISO >= " & Format(Inizio.Value, "yyyyMMdd") & " AND TransactionDateISO <= " & Format(Fine.Value, "yyyyMMdd")
         Dim Env As String = ""
-        If IYC.Checked = True And GRC.Checked = False Then Env = "IYC"
-        If IYC.Checked = False And GRC.Checked = True Then Env = "GRC"
-        If Env <> "" Then Testo = Testo & " AND ""Environment"" = '" & Env & "'"
+        Dim Con As String = ""
+        If IYC.Checked = True Or GRC.Checked = True Or MAP.Checked = True Or MFR.Checked = True Then
+            Con = """Environment"" = ''"
+            If Me.IYC.Checked = True Then Con += " or ""Environment"" = 'IYC'"
+            If Me.GRC.Checked = True Then Con += " or ""Environment"" = 'GRC'"
+            If Me.MFR.Checked = True Then Con += " or ""Environment"" = 'MFR'"
+            If Me.MAP.Checked = True Then Con += " or ""Environment"" = 'MAP'"
+        Else
+            Con = """Environment"" = 'IYC'"
+        End If
+        If Con <> "" Then Testo = Testo & " AND (" & Con & ")"
 
         Dim SRSI As String = ""
         If CheckBox5.Checked = True And CheckBox6.Checked = False Then SRSI = "SR"
@@ -45,7 +53,6 @@ Public Class Form1
         Testo = Testo & " " & BL
 
         'Excel
-
         Dim mEx As Excel.Application
         Dim mWb As Excel.Workbook
         Dim msWb As Excel.Workbooks
@@ -59,7 +66,6 @@ Public Class Form1
         mWs.Name = "Sales Control"
 
         mEx.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized
-
         'Add Connections
         With mWb.PivotCaches.Create(SourceType:=Microsoft.Office.Interop.Excel.XlPivotTableSourceType.xlExternal)
             .Connection = "OLEDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=True;Initial Catalog=SalesControl;Data Source=IYCSITDB0001;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=IYCLITC2D6PQ2;Use Encryption for Data=False;Tag with column collation when possible=False"
@@ -122,13 +128,18 @@ Public Class Form1
         If Me.OOH.Checked = True Then
             mWs1 = mWb.Sheets.Add(, mWs)
             mWs1.Name = "OOH"
-            Dim Con As String = ""
             With mWb.PivotCaches.Create(SourceType:=Microsoft.Office.Interop.Excel.XlPivotTableSourceType.xlExternal)
                 .Connection = "OLEDB;DRIVER=SQL Server;SERVER=IYCSITDB0001;UID=ssccg;Trusted_Connection=Yes;APP=Microsoft Office 2016;WSID=SSILITD49GHC2;DATABASE=SalesControl"
-                If Me.IYC.Checked = True And Me.GRC.Checked = False Then Con = "SELECT * FROM SalesControl.dbo.OOHAll where ""Environment"" = 'IYC'"
-                If Me.IYC.Checked = False And Me.GRC.Checked = True Then Con = "SELECT * FROM SalesControl.dbo.OOHAll where ""Environment"" = 'GRC'"
-                If Me.IYC.Checked = False And Me.GRC.Checked = False Then Con = "SELECT * FROM SalesControl.dbo.OOHAll where ""Environment"" = 'IYC' or ""Environment"" = 'GRC'"
-                If Me.IYC.Checked = True And Me.GRC.Checked = True Then Con = "SELECT * FROM SalesControl.dbo.OOHAll where ""Environment"" = 'IYC' or ""Environment"" = 'GRC'"
+                If IYC.Checked = True Or GRC.Checked = True Or MAP.Checked = True Or MFR.Checked = True Then
+                    Con = "SELECT * FROM SalesControl.dbo.OOHAll where ""Environment"" = ''"
+                    If Me.IYC.Checked = True Then Con += " or ""Environment"" = 'IYC'"
+                    If Me.GRC.Checked = True Then Con += " or ""Environment"" = 'GRC'"
+                    If Me.MFR.Checked = True Then Con += " or ""Environment"" = 'MFR'"
+                    If Me.MAP.Checked = True Then Con += " or ""Environment"" = 'MAP'"
+                Else
+                    Con = "SELECT * FROM SalesControl.dbo.OOHAll where ""Environment"" = 'IYC'"
+                End If
+
 
                 .CommandText = Con & BL
                 .MaintainConnection = True
