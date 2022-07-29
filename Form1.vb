@@ -20,7 +20,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim Testo As String = "select * from ""SalesControl"".""dbo"".""SalesControlAll"" Where TransactionDateISO >= " & Format(Inizio.Value, "yyyyMMdd") & " AND TransactionDateISO <= " & Format(Fine.Value, "yyyyMMdd")
+        Dim Testo As String = "select  [SR-SI],[OrderNumber],[InvoiceNumber],[TransactionDate],[OrderType],[OrderNumberWEB],[CustomerCode],[CustomerName],[ItemNumber],[ItemDescription],[CurrentPGC],[CurrentGAC],[Business Line],[Quantity],[SalesCost],[ListPrice],[SalesPrice],[SAM],[SAMName],[ShipTo],[OrderSource],[OrderSourceName],[Environment],[Year],[Month],[Day],[TransactionDateISO],[CurrentGACDescription],[CurrentPGCDescription],[CurrentProductLine],[CurrentPLdgts],[StateProvince],[StateProvinceName],[Region],[Area],[Country],[ActivityCode],[SalesChannel],[SalesChannelType]  from ""SalesControl"".""dbo"".""SalesControlAll"" Where TransactionDateISO >= " & Format(Inizio.Value, "yyyyMMdd") & " AND TransactionDateISO <= " & Format(Fine.Value, "yyyyMMdd")
         Dim Env As String = ""
         Dim Con As String = ""
         If IYC.Checked = True Or GRC.Checked = True Or MAP.Checked = True Or MFR.Checked = True Then
