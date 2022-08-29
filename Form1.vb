@@ -14,7 +14,7 @@ Public Class Form1
         Fine.Value = Now()
         CheckBox3.Checked = True
         IYC.Checked = True
-        GRC.Checked = True
+        'GRC.Checked = True
         CheckBox5.Checked = True
         CheckBox6.Checked = True
     End Sub
