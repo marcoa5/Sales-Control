@@ -1,7 +1,10 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
-Imports System.Runtime.InteropServices
-Imports Microsoft.Office.Interop
+Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Button
+Imports Microsoft.Office.Interop.Excel
+
 Public Class Form1
+    Private myConn As SqlConnection
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If System.Diagnostics.Debugger.IsAttached Then
             Me.Text = "Sales Control Debug Mode"
@@ -9,6 +12,24 @@ Public Class Form1
             Me.Text = "Sales Control Version " & My.Application.Deployment.CurrentVersion.ToString
         End If
 
+        'Get Field list form SQLserver
+        myConn = New SqlConnection("Integrated Security=SSPI;Persist Security Info=True;Initial Catalog=SalesControl;Data Source=IYCSITDB0001;Packet Size=4096;Workstation ID=IYCLITC2D6PQ2")
+        myConn.Open()
+        Dim cmd As SqlCommand = New SqlCommand
+        cmd.CommandText = "60"
+        cmd.CommandType = CommandType.Text
+        cmd.CommandText = "select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = 'salescontrolall'"
+        cmd.Connection = myConn
+        Dim dr As SqlDataReader
+        Dim i As Integer
+        dr = cmd.ExecuteReader(CommandBehavior.Default)
+        Do While dr.Read
+            i = Fields.Items.Add(dr("COLUMN_NAME"))
+        Loop
+        dr = Nothing
+        cmd = Nothing
+        myConn.Close()
+        Button9.PerformClick()
 
         Inizio.Value = "01/01/" & Year(Now())
         Fine.Value = Now()
@@ -20,7 +41,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim Testo As String = "select  [SR-SI],[OrderNumber],[InvoiceNumber],[TransactionDate],[OrderType],[CustomerCode],[CustomerName],[ItemNumber],[ItemDescription],[CurrentPGC],[CurrentGAC],[Business Line],[Quantity],[SalesCost],[ListPrice],[SalesPrice],[SAM],[SAMName],[ShipTo],[OrderSourceName],[Environment],[Year],[Month],[Day],[TransactionDateISO],[CurrentGACDescription],[CurrentPGCDescription],[StateProvince],[StateProvinceName],[Region],[Area],[Country],[ActivityCode],[SalesChannel],[SalesChannelType]  from ""SalesControl"".""dbo"".""SalesControlAll"" Where TransactionDateISO >= " & Format(Inizio.Value, "yyyyMMdd") & " AND TransactionDateISO <= " & Format(Fine.Value, "yyyyMMdd")
+        Dim Testo As String = "select " & getSelection() & " from ""SalesControl"".""dbo"".""SalesControlAll"" Where TransactionDateISO >= " & Format(Inizio.Value, "yyyyMMdd") & " AND TransactionDateISO <= " & Format(Fine.Value, "yyyyMMdd")
         Dim Env As String = ""
         Dim Con As String = ""
         If IYC.Checked = True Or GRC.Checked = True Or MAP.Checked = True Or MFR.Checked = True Then
@@ -250,11 +271,71 @@ Public Class Form1
         Fine.Value = I
     End Sub
 
-    Private Sub CheckedListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CheckedListBox1.SelectedIndexChanged
+    Private Sub Button8_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs)
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button8_Click_1(sender As Object, e As EventArgs) Handles Button8.Click
+        For i As Integer = 0 To Fields.Items.Count - 1
+            Fields.SetItemChecked(i, True)
+        Next
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        Dim list = New String() {"SR-SI", "OrderNumber", "InvoiceNumber", "TransactionDate", "CustomerCode", "CustomerName", "ItemNumber", "ItemDescription", "CurrentPGC", "CurrentGAC", "Business Line", "Quantity", "SalesCost", "SalesPrice", "SAM", "SAMName", "ShipTo", "Environment", "TransactionDateISO", "CurrentGACDescription", "CurrentPGCDescription", "Country", "ActivityCode", "SalesChannel", "SalesChannelType"}
+        selectItem(list)
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        Dim list = New String() {"SR-SI", "TransactionDate", "CustomerName", "ItemNumber", "ItemDescription", "CurrentGAC", "Business Line", "Quantity", "SalesCost", "SalesPrice", "Environment", "TransactionDateISO", "CurrentGACDescription", "ActivityCode"}
+        selectItem(list)
+    End Sub
+
+    Private Sub selectItem(list As String())
+        For i As Integer = 0 To Fields.Items.Count - 1
+            If list.Contains(Fields.Items(i)) Then
+                Fields.SetItemChecked(i, True)
+            Else
+                Fields.SetItemChecked(i, False)
+            End If
+        Next
+    End Sub
+
+    Private Function getSelection() As String
+        Dim res1 As New List(Of String)
+        For i As Integer = 0 To Fields.Items.Count - 1
+            If Fields.GetItemChecked(i) = True Then res1.Add(Fields.Items(i))
+        Next
+        Dim str As String = ""
+        If res1.Count > 0 Then
+            For Each y In res1
+                If str = "" Then
+                    str += "[" & y & "]"
+                Else
+                    str += ",[" & y & "]"
+                End If
+            Next
+        Else
+            str = "*"
+        End If
+        Return str
+    End Function
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs)
+        Console.WriteLine(getSelection())
+    End Sub
+
+    Private Sub Button11_Click_1(sender As Object, e As EventArgs) Handles Button11.Click
+        For i As Integer = 0 To Fields.Items.Count - 1
+            Fields.SetItemChecked(i, False)
+        Next
     End Sub
 End Class
